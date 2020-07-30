@@ -15,4 +15,56 @@ $dark-grayish-blue: hsl(232, 13%, 33%);
 body {
   font-size: 15px;
   font-family: "Montserrat", sans-serif;
+  text-align: center;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  background-color: $very-light-grayish-blue;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+h2 {
+  color: $grayish-blue;
+}
+
+h3 {
+  color: $grayish-blue;
+}
+
+p {
+  color: $dark-grayish-blue;
+  font-size: 4em;
+  margin: 0;
+}
+
+li,
+span {
+  color: $light-grayish-blue;
+}
+
+// component styles
+.component {
+  &:not(:first-child) {
+    margin-left: 1em;
+  }
+
+  background: white;
+  border-radius: 7px;
+  padding: 2rem;
+  margin-top: 2rem;
+  box-shadow: 1px 2px 15px rgba(0, 0, 0, 0.1);
+
+  & .year {
+    display: none;
+  }
 }
