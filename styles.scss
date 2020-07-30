@@ -106,11 +106,24 @@ li {
   letter-spacing: 1px;
   border-radius: 7px;
   cursor: pointer;
+  transition: 0.1s ease-in all;
+
+  &:hover {
+    background: transparent;
+    color: $dark-grayish-blue;
+    border: 1px solid $dark-grayish-blue;
+  }
 }
 
 .btn-premium {
   background: white;
   color: $grayish-blue;
+  transition: 0.1s ease-in all;
+
+  &:hover {
+    color: white;
+    border: 1px solid white;
+  }
 }
 
 .toggle {
@@ -137,6 +150,10 @@ input {
   margin: 0 1rem;
   position: relative;
   cursor: pointer;
+
+  &:hover {
+    background: hsl(236, 79%, 82%);
+  }
 
   .ball {
     position: absolute;
@@ -206,6 +223,36 @@ input {
     span,
     li {
       color: white;
+    }
+  }
+}
+
+@media screen and (max-width: 375px) {
+  body {
+    &::after {
+      display: none;
+    }
+  }
+  .container {
+    overflow: hidden;
+    padding: 3rem 0;
+  }
+  .flex {
+    flex-direction: column;
+  }
+
+  .component {
+    width: 21rem;
+    &:first-child {
+      margin-right: 0;
+    }
+
+    &:last-child {
+      margin-left: 0;
+    }
+
+    &.premium {
+      width: 21rem;
     }
   }
 }

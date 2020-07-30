@@ -118,11 +118,26 @@ li {
   letter-spacing: 1px;
   border-radius: 7px;
   cursor: pointer;
+  -webkit-transition: 0.1s ease-in all;
+  transition: 0.1s ease-in all;
+}
+
+.btn:hover {
+  background: transparent;
+  color: #494c5f;
+  border: 1px solid #494c5f;
 }
 
 .btn-premium {
   background: white;
   color: #6d708d;
+  -webkit-transition: 0.1s ease-in all;
+  transition: 0.1s ease-in all;
+}
+
+.btn-premium:hover {
+  color: white;
+  border: 1px solid white;
 }
 
 .toggle {
@@ -157,6 +172,10 @@ input:checked + .pill .ball {
   margin: 0 1rem;
   position: relative;
   cursor: pointer;
+}
+
+.pill:hover {
+  background: #adb2f5;
 }
 
 .pill .ball {
@@ -233,5 +252,33 @@ input:checked + .pill .ball {
 .component.premium span,
 .component.premium li {
   color: white;
+}
+
+@media screen and (max-width: 375px) {
+  body::after {
+    display: none;
+  }
+  .container {
+    overflow: hidden;
+    padding: 3rem 0;
+  }
+  .flex {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .component {
+    width: 21rem;
+  }
+  .component:first-child {
+    margin-right: 0;
+  }
+  .component:last-child {
+    margin-left: 0;
+  }
+  .component.premium {
+    width: 21rem;
+  }
 }
 /*# sourceMappingURL=styles.css.map */
