@@ -14,14 +14,21 @@
 
     <title>pricing component</title>
     <link rel="stylesheet" href="styles.css" />
+    <script src="script.js" defer></script>
   </head>
   <body>
     <div class="container">
-      <h2>Our Pricing</h2>
-      <div class="toggole">
+      <h1>Our Pricing</h1>
+      <div class="toggle">
         <span>Annually</span>
-        <label for="toggle"></label>
-        <input type="checkbox" name="toggle" id="toggle" />
+        <input
+          class="check"
+          type="checkbox"
+          name="toggle"
+          id="toggle"
+          unchecked
+        />
+        <label class="pill" for="toggle"><span class="ball"></span></label>
         <span>Monthly</span>
       </div>
       <div class="flex">
@@ -50,7 +57,7 @@
             <li>5 Users Allowed</li>
             <li>Send up to 10 GB</li>
           </ul>
-          <button class="btn">Learn More</button>
+          <button class="btn btn-premium">Learn More</button>
         </div>
 
         <div class="component">

@@ -2,6 +2,7 @@
 
 // variables
 $gradient: linear-gradient(to right, hsl(236, 72%, 79%), hsl(237, 63%, 64%));
+$gradient-b: linear-gradient(to bottom, hsl(236, 72%, 79%), hsl(237, 63%, 64%));
 $very-light-grayish-blue: hsl(240, 78%, 98%);
 $light-grayish-blue: hsl(234, 14%, 74%);
 $grayish-blue: hsl(233, 13%, 49%);
@@ -21,6 +22,25 @@ body {
   justify-content: center;
   align-content: center;
   background-color: $very-light-grayish-blue;
+  margin: 0;
+
+  &::before {
+    content: "";
+    background: url("./images/bg-top.svg") no-repeat top right;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+  }
+
+  &::after {
+    content: "";
+    background: url("./images/bg-bottom.svg") no-repeat bottom left;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+  }
 }
 .container {
   display: flex;
@@ -31,10 +51,12 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: 2rem;
 }
 
-h2 {
+h1 {
   color: $grayish-blue;
+  font-size: 2.5rem;
 }
 
 h3 {
@@ -43,28 +65,135 @@ h3 {
 
 p {
   color: $dark-grayish-blue;
-  font-size: 4em;
+  font-size: 4.5em;
   margin: 0;
+  max-width: 250px;
+  margin: 0 auto;
 }
 
-li,
 span {
   color: $light-grayish-blue;
+  font-size: 1.2rem;
+}
+
+li {
+  color: $grayish-blue;
+}
+
+.btn {
+  background: $gradient;
+  border: none;
+  padding: 1rem;
+  width: 100%;
+  outline: none;
+  margin-top: 1.5rem;
+  color: white;
+  text-transform: uppercase;
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+  border-radius: 7px;
+  cursor: pointer;
+}
+
+.btn-premium {
+  background: white;
+  color: $grayish-blue;
+}
+
+.toggle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+input {
+  position: absolute;
+  left: -99999px;
+
+  &:checked + .pill .ball {
+    transform: translateX(-2rem);
+  }
+}
+
+.pill {
+  display: inline-block;
+  width: 4.2rem;
+  height: 2.2rem;
+  border-radius: 50px;
+  background: $gradient;
+  margin: 0 1rem;
+  position: relative;
+  cursor: pointer;
+
+  .ball {
+    position: absolute;
+    background-color: white;
+    border-radius: 50%;
+    width: 1.7rem;
+    height: 1.7rem;
+    top: 0.25rem;
+    right: 0.25rem;
+    transition: 0.2s transform ease-in;
+  }
 }
 
 // component styles
 .component {
-  &:not(:first-child) {
-    margin-left: 1em;
-  }
-
   background: white;
-  border-radius: 7px;
-  padding: 2rem;
+  border-radius: 8px;
+  padding: 2em 3em;
+  width: 24rem;
   margin-top: 2rem;
   box-shadow: 1px 2px 15px rgba(0, 0, 0, 0.1);
 
-  & .year {
+  &:first-child {
+    margin-right: -0.5em;
+  }
+
+  &:last-child {
+    margin-left: -0.5rem;
+  }
+
+  & .price .year {
     display: none;
+  }
+
+  & .price .year.show {
+    display: block;
+  }
+
+  & .price .month.show {
+    display: none;
+  }
+
+  ul {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 1.5rem;
+    border-top: 1px solid rgba($light-grayish-blue, 0.5);
+
+    li {
+      font-size: 1.1rem;
+      border-bottom: 1px solid rgba($light-grayish-blue, 0.5);
+      margin-top: 0rem;
+      padding: 1.4rem 0;
+    }
+  }
+
+  &.premium {
+    background: $gradient-b;
+    color: white;
+    width: 23rem;
+    padding: 3.2rem 2rem;
+    z-index: 2;
+    box-shadow: 0px 5px 28px rgba(0, 0, 0, 0.2);
+
+    h3,
+    p,
+    span,
+    li {
+      color: white;
+    }
   }
 }
